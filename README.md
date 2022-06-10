@@ -95,7 +95,7 @@ By default, when dice is rolled every player can move one piece by dice face val
 
 Q-learning is a model-free reinforcement learning algorithm to learn the value of an action in a particular state. It does not require a model of the environment (hence &quot;model-free&quot;), and it can handle problems with stochastic transitions and rewards without requiring adaptations.
 
-![](RackMultipart20220610-1-hbes15_html_d5b0e41cb225e752.png)
+![Ludo](pictures/ludo.png)
 
 To simplify the environment, we unwrapped the Ludo board to a one-dimensional form as shown above. This made tracking and keeping scores easier. We are utilizing a Q table to determine the agent&#39;s best action. State = , where . We have about () Statesfor the smallest environment that we have used model, similarly () for the largest environment and for the variant with 3 pieces we have () and we are using two different Q tables to determine the actions of our agents. Where, the second Q table is just a flipped version of the first and doing this gives us the perspective of the second agent.
 
