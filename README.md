@@ -1,8 +1,8 @@
-CSE 546: Reinforcement Learning
+# CSE 546: Reinforcement Learning
 
 (Spring 2022)
 
-Final Project Report: LUDO
+## Final Project Report: LUDO
 
 Team Members
 
