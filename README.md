@@ -51,7 +51,7 @@ The reward should be increasing as the pieces move closer to their goal position
 
 ## 3.1 Ludo
 
-![](RackMultipart20220610-1-hbes15_html_7483cdb032a0d9a4.png)
+![Ludo](pictures/ludo.png)
 
 Ludo is a 2 to 4 player strategic board game in which players race their four pieces from start to finish based on a single die roll.
 
@@ -65,7 +65,7 @@ A player&#39;s home column squares are always safe spaces, no opponent may enter
 
 ## 3.2 Environment (Simplified Ludo)
 
-![](RackMultipart20220610-1-hbes15_html_daa22fe9059ee423.png)
+![Simplified Ludo](pictures/environment_ludo_simplified.png)
 
 At its core Ludo is essentially a circular racetrack, and to simplify our environment, we unwrapped the Ludo board/racetrack to a one-dimensional form as shown above. This made scaling down, tracking movements, kills a lot easier. This also turned our environment into a variation of &quot;the grid-world&quot;. Simplifying the environment is important for reducing the number of states to implement tabular methods, and to reduce the training time. The number of states is redefined to reduce complexity and numerous permutations and combinations.
 
@@ -77,7 +77,7 @@ Racetrack allows us to track progress, while battlefield gives the relative posi
 
 Racetrack and battlefield description in our environment:
 
-![](RackMultipart20220610-1-hbes15_html_afdb9b78afc6bc00.png)
+![Simplified Ludo](pictures/render.png)
 
 We have followed the Open AI gym code structure as we did in all our assignments.
 
@@ -95,7 +95,7 @@ By default, when dice is rolled every player can move one piece by dice face val
 
 Q-learning is a model-free reinforcement learning algorithm to learn the value of an action in a particular state. It does not require a model of the environment (hence &quot;model-free&quot;), and it can handle problems with stochastic transitions and rewards without requiring adaptations.
 
-![Ludo](pictures/ludo.png)
+![Ludo](pictures/bellman.png)
 
 To simplify the environment, we unwrapped the Ludo board to a one-dimensional form as shown above. This made tracking and keeping scores easier. We are utilizing a Q table to determine the agent&#39;s best action. State = , where . We have about () Statesfor the smallest environment that we have used model, similarly () for the largest environment and for the variant with 3 pieces we have () and we are using two different Q tables to determine the actions of our agents. Where, the second Q table is just a flipped version of the first and doing this gives us the perspective of the second agent.
 
@@ -105,13 +105,6 @@ Here 2 versions of the agent are playing Ludo. Both versions utilize the same q-
 
 After running for 100000 episodes with learning rate 0.2 and discount factor 0.9, it can be observed that the Q-agent was winning against random agent 60% of the time. It&#39;s not possible to win every time when we play against the random agent as there is randomness involved.
 
-Reward Graph
-
-![](RackMultipart20220610-1-hbes15_html_58af3bfa8b86d43c.png)
-
-Epsilon Graph
-
-![](RackMultipart20220610-1-hbes15_html_a5c7e12b3e9daccd.png)
 
 **Analytical Agent:** This is the rule-based version of the agent. We hardcoded the policy by calculating a score for each possible action and then choosing action with max score.
 
@@ -123,13 +116,6 @@ Here we are running our agent in the environment with an analytical agent which 
 
 When we pitched this Q learning agent vs Random agent, it won 57% of the times (in 1000 games)
 
-Reward Graph:
-
-![](RackMultipart20220610-1-hbes15_html_8af54e2841cd7b6e.png)
-
-Epsilon Graph:
-
-![](RackMultipart20220610-1-hbes15_html_fa3970a0dc446ed7.png)
 
 Similarly,
 
@@ -161,7 +147,6 @@ The Q agent was able to win 59%
 
 Actor critic consists of 2 sets which are actor and critic, actor here does the function of updating policy parameters which is based on the feedback provided by the critic. Critic has the function of updating the value function. Actor-critic follows the approximate policy gradient which is as follows:
 
-![](RackMultipart20220610-1-hbes15_html_5ae9f77483efb4ea.png)
 
 From among the listed algorithms in the problem statement, we have used Advantage Actor-Critic (A2C) algorithm. In this algorithm, agent&#39;s TD error is calculated. Critic returns the state value after evaluating the action taken by the actor. Returning state values is the process of learning for the critic about which state is good and which is bad. Critic uses policy evaluation (e.g. MC or TD learning) to estimate Qπ(s, a), Aπ(s, a) or Vπ(s). Here, we have implemented Temporal Difference Advantage.
 
@@ -195,9 +180,7 @@ So, we first created our analytical agent with mathematical rules to play in our
 
 - **Visualization**
 
-![](RackMultipart20220610-1-hbes15_html_8fb95e4d5b445db8.png)
-
-Here, the visualization shows when a piece kills enemy the environment displays a message &#39;BOOM&#39;.
+The visualization shows when a piece kills enemy the environment displays a message &#39;BOOM&#39;.
 
 **Team Contribution:**
 
